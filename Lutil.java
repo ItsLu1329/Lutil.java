@@ -1,13 +1,12 @@
 //Author: Lu
 //Date Made - 4/7/2022
-// V 1.0.4.2
-// last update date: 5 - 21 - 2022
+// V 1.0.4.3
+// last update date: 5 - 24 - 2022
 
-import java.util.Random;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
+// go to w3 schools java
+package lu;
+import java.util.*;
+import java.io.*; 
 
 
 public class Lutil {
@@ -120,20 +119,40 @@ public class Lutil {
     System.out.print("working");
     
   }
-  public int sumElements (int[] numbers){
+  public static int sumElements (int[] numbers){
         int sum = 0;
         for (int n : numbers)
             sum += n;
         return sum;
     }
-  public int sumElements (double[] numbers){
+  public static int sumElements (double[] numbers){
         int sum = 0;
-        for (int n : numbers)
+        for (double n : numbers)
             sum += n;
         return sum;
     }
     
-    public int squareNum (int number) {
+    public static int square (int number) {
         return number * number;
     }
+  
+  public static String readFile(String filename) {
+    String fileData = "";
+    try {
+      File infile = new File (filename);
+      Scanner reader = new Scanner (infile);
+      while (reader.hasNextLine()) {
+        String lineData = reader.nextLine();
+        fileData +=  lineData;
+      }
+      reader.close();
+      
+    }
+    catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    return fileData;
+  }
+  
 }
